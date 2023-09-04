@@ -11,6 +11,5 @@
         public string Sexo { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public ICollection<Medico> Medicos { get; set; }
-        public ICollection<Consulta> Consultas { get; set; }
     }
 }

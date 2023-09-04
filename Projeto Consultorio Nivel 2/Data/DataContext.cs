@@ -14,6 +14,7 @@ namespace Projeto_Consultorio_Nivel_2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Consulta>()
             .HasOne(c => c.Medico)
@@ -37,14 +38,13 @@ namespace Projeto_Consultorio_Nivel_2.Data
         j => j
             .HasOne<Paciente>()
             .WithMany()
-            .HasForeignKey("PacienteId"),
+            .HasForeignKey("IdPaciente"),
         j =>
         {
-            j.HasKey("PacienteId", "MedicoId");
+            j.HasKey("IdPaciente", "MedicoId");
             j.ToTable("PacienteMedico");
         });
 
-            base.OnModelCreating(modelBuilder);
         }
     }
 }
