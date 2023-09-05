@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Projeto_Consultorio_Nivel_2.Data;
 using Projeto_Consultorio_Nivel_2.DTOs;
 using Projeto_Consultorio_Nivel_2.Models;
 
