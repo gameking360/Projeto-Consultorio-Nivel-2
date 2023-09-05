@@ -34,14 +34,16 @@ namespace Projeto_Consultorio_Nivel_2.Data
         j => j
             .HasOne<Medico>()
             .WithMany()
-            .HasForeignKey("MedicoId"),
+            .HasForeignKey("IdMedico"),
         j => j
             .HasOne<Paciente>()
             .WithMany()
             .HasForeignKey("IdPaciente"),
         j =>
         {
-            j.HasKey("IdPaciente", "MedicoId");
+
+            j.HasKey("IdPaciente", "IdMedico");
+
             j.ToTable("PacienteMedico");
         });
 
