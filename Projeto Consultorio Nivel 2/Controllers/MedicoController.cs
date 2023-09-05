@@ -38,7 +38,7 @@ namespace Projeto_Consultorio_Nivel_2.Controllers
         [HttpPost]
         public async Task<ActionResult<Medico>> CreateMedico(CreateMedicoDTO medicoDTO)
         {
-            var resposta = _medicoInterface.CreateMedico(medicoDTO);
+            var resposta = await _medicoInterface.CreateMedico(medicoDTO);
             if (resposta is null) return BadRequest("Erro ao criar o médico");
             
             return Ok("Médico criado com sucesso");
@@ -59,7 +59,7 @@ namespace Projeto_Consultorio_Nivel_2.Controllers
         [HttpPatch("medicos/{id}")]
         public async Task<IActionResult> UpdateEspecialidadeMedico(int id, string especialidade)
         {
-            var respota = _medicoInterface.UpdateEspecialidade(id, especialidade);
+            var respota = await _medicoInterface.UpdateEspecialidade(id, especialidade);
             if (respota is null) return BadRequest("Erro ao atualizar a especialidade");
 
             return Ok("Especialidade atualizada com sucesso");

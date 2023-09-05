@@ -51,7 +51,7 @@ namespace Projeto_Consultorio_Nivel_2.Services
 
         public async Task<int?> UpdateMedico(MedicoDTO medico)
         {
-           var dbMedico = await _context.Medicos.FirstOrDefaultAsync(m => m.Id == medico.Id);
+           var dbMedico = await _context.Medicos.Include(p => p.Pacientes).FirstOrDefaultAsync(m => m.Id == medico.Id);
            
             if(dbMedico == null) return null;
             else

@@ -55,11 +55,15 @@ namespace Projeto_Consultorio_Nivel_2.Mappers
             if(medicoDTO.CRM != "string" && !medicoDTO.CRM.IsNullOrEmpty()) medico.CRM = medicoDTO.CRM;
             if(medicoDTO.Genero != "string" && !medicoDTO.Genero.IsNullOrEmpty()) medico.Genero = medicoDTO.Genero;
             if(medicoDTO.Telefone != "string" && !medicoDTO.Telefone.IsNullOrEmpty()) medico.Telefone = medicoDTO.Telefone;
-            
+            if(medicoDTO.Nome != "string" && !medicoDTO.Nome.IsNullOrEmpty()) medico.Nome = medicoDTO.Nome;
+
             foreach(var paciente in medicoDTO.Pacientes)
             {
                 var p = context.Pacientes.FirstOrDefault(p => p.Nome.ToLower() == paciente.ToLower());
+                if(p != null) {
                 medico.Pacientes.Add(p);
+                }
+
 
             }
             return medico;
